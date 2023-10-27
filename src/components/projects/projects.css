@@ -1,0 +1,101 @@
+.projectContainer {
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+.projectWrapper {
+    width: 80%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectTitleContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.projectShape {
+    width: 10px;
+    height: 70px;
+    border-radius: 20px;
+    background-color: tomato;
+}
+
+.projects {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    position: relative;
+    margin-top: 40px;
+    width: 500px;
+    height: 270px;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-image: url('../../asset/bmw.jpg');
+    background-size: cover;
+}
+
+.projectContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(	255, 99, 71, 0.0);
+    color: transparent;
+    border-radius: 20px;
+
+    transition: all 0.5s ease;
+}
+
+.project:hover .projectContent {
+    background-color: rgb(	255, 99, 71, 0.85);
+    color: #fff;
+}
+
+
+@media screen and (max-width: 750px) {
+    .projectContainer {
+        height: max-content;
+    }
+
+    .projectWrapper {
+        margin-top: 30px;
+    }
+    
+    .projectTitleContainer h1 {
+        font-size: 25px;
+    }
+    
+
+    .projectShape {
+        width: 7px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    
+    .project {
+        margin-top: 30px;
+        width: 400px;
+        height: 230px;
+    }
+}

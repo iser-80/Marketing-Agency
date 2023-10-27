@@ -1,0 +1,195 @@
+.aboutContainer {
+    height: 1000px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutWrapper {
+    height: 400px;
+    width: 80%;
+    background-image: url('../../asset/busniss.jpg'); /* Your background image path */
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+    position: relative;
+    text-align: center; /* Center the text within the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutWrapper::before {
+    content: "";
+    position: absolute;
+    border-radius: 40px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Adjust this value for the desired split between background and content */
+    background: rgba(251, 85, 25, 0.8); /* Orange color with reduced opacity */
+}
+
+.aboutContent {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+}
+
+.aboutWrapper h1 {
+    font-size: 40px;
+}
+
+.aboutWrapper p {
+    font-size: 20px;
+}
+
+.aboutInfos {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.aboutInfos h1 {
+    font-size: 30px;
+    color: tomato;
+}
+
+.aboutInfos p {
+    color: gray;
+    margin-top: 10px;
+}
+
+.aboutTeam {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile {
+    height: 350px;
+    width: 290px;
+    cursor: pointer;
+}
+
+.profileImage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../asset/profile.jpg');
+    overflow: hidden;
+}
+
+.profileContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: transparent;
+    transform: translateY(38%);
+
+    transition: all 0.5s ease;
+}
+
+.profile:hover .profileContent {
+    background: linear-gradient(rgb(0, 0, 0, 0), #000);
+    transform: translateX(0);
+}
+
+.profile:hover .profileInfos h2::after {
+    transform: scaleX(1);
+}
+
+.profileInfos {
+    width: 100%;
+    height: 50%;
+    padding: 0 16px;
+    position: absolute;
+    bottom: 0;
+}
+
+.profileInfos h2 {
+    color: white;
+    position: relative;
+    padding-bottom: 10px;
+    width: max-content;
+}
+
+.profileInfos h2::after {
+    content: '';
+    width: calc(100% + 16px);
+    height: 5px;
+    border-radius: 10px;
+    background-color: tomato;
+    position: absolute;
+    bottom: 0;
+    left: -16px;
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: all 0.5s ease;
+}
+
+.profileInfos p {
+    color: lightgray;
+    font-family: sans-serif;
+    line-height: 1.2;
+}
+
+
+@media screen and (max-width: 750px) {
+    .aboutContainer {
+        height: max-content;
+    }
+    
+    .aboutWrapper {
+        margin-top: 30px;
+        height: 200px;
+        border-radius: 20px;
+    }
+    
+    .aboutWrapper::before {
+        border-radius: 20px;
+    }
+   
+    .aboutWrapper h1 {
+        font-size: 30px;
+    }
+
+    .aboutWrapper p {
+        font-size: 18px;
+    }
+
+    .aboutTeam {
+        width: 100%;
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+ 
+    .profile {
+        height: 300px;
+        width: 240px;
+        margin-bottom: 20px;
+    }
+
+    .profileImage {
+        border-radius: 10px;
+    }
+
+    .profileContent {
+        border-radius: 10px;
+    }
+}
