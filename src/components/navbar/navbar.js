@@ -1,5 +1,8 @@
 import React from 'react'
 import './navbar.css'
+import { Link as ScrollLink } from 'react-scroll'
+import { Link as RouterLink } from 'react-router-dom'
+
 const Navbar = () => {
   return (
     <>
@@ -10,18 +13,22 @@ const Navbar = () => {
                 </div>
                 <ul>
                     <li>
-                        <div className='navLink' >Home</div>
+                        <ScrollLink to="home" spy={true} smooth={true} duration={500} className='navLink' >Home</ScrollLink>
                     </li>
                     <li>
-                        <div className='navLink' >About</div>
+                        <ScrollLink to="about" spy={true} smooth={true} duration={500} className='navLink' >About</ScrollLink>
                     </li>
                     <li>
-                        <div className='navLink' >Projects</div>
+                        <ScrollLink to="projects" spy={true} smooth={true} duration={500} className='navLink' >Projects</ScrollLink>
                     </li>
                     <li>
-                        <div className='navLink' >Contact</div>
+                        <ScrollLink to="contact" spy={true} smooth={true} duration={500} className='navLink' >Contact</ScrollLink>
                     </li>
                 </ul>
+                <div className='authContainer'>
+                    <RouterLink to='/login' className='loginBtn' >Login</RouterLink>
+                    <RouterLink to='/register' className='registerBtn' >Register</RouterLink>
+                </div>
             </div>
         </nav>
     </>

@@ -38,7 +38,7 @@ ul {
 }
 
 li {
-    height: 80px;
+    height: 60px;
 }
 
 .navLink {
@@ -46,9 +46,56 @@ li {
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: max-content;
     font-size: 1rem;
     color: #000;
     text-decoration: none;
     padding: 0 1rem;
     cursor: pointer;
+    position: relative;
+}
+
+.navLink:hover {
+    color: tomato;
+}
+
+.authContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.loginBtn {
+    padding: 8px 15px;
+    border: .5px solid tomato;
+    border-radius: 5px;
+    background-color: tomato;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+.loginBtn:hover {
+    background-color: white;
+    color: tomato;
+}
+
+.registerBtn {
+    padding: 8px 15px;
+    border: .5px solid tomato;
+    border-radius: 5px;
+    background-color: white;
+    color: tomato;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+.registerBtn:hover {
+    background-color: tomato;
+    color: white;
 }

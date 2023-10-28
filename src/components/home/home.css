@@ -58,6 +58,11 @@
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.2s ease-in;
+    text-decoration: none;
+}
+
+.link {
+    text-decoration: none;
 }
 
 .btn:hover {

@@ -1,19 +1,19 @@
 import './App.css';
-import {BrowserRouter as Router} from 'react-router-dom'
-import Navbar from './components/navbar/navbar';
-import Home from './components/home/home';
-import About from './components/about/about';
-import Projects from './components/projects/projects';
-import Contact from './components/contact/contact';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { Element } from 'react-scroll';
+import Login from './pages/login/login';
+import Main from './pages/home/main';
+import Register from './pages/register/register';
+
  
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Home />
-      <About />
-      <Projects />
-      <Contact />
+      <Routes>  
+          <Route path='/' element={<Main />} />
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>} />
+      </Routes>
     </Router>
   );
 }
