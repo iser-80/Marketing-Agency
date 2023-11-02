@@ -103,7 +103,7 @@ button {
     transition: all .3s ease;
 }
 
-button:hover {
+.contactBtn:hover {
     border: 0.1px solid tomato;
     background-color: #fff;
     color: tomato;
@@ -168,6 +168,10 @@ button:hover {
 .media:hover {
     color: tomato;
     background: white;
+}
+
+.contactBtn {
+    
 }
 
 @media screen and (max-width: 750px) {

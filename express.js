@@ -68,5 +68,14 @@ app.post('/api/register', async (req, res) => {
     }
 })
 
+app.post('/api/logout', async (req, res) => {
+    res.cookie('jwt', '', {
+        httpOnly: true,
+        expires: new Date(0)
+    })
+
+    res.status(200).json({message: 'user logged out'})  
+})
+
 
 app.listen(process.env.PORT || 8001, console.log('port connected'))

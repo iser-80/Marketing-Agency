@@ -1,9 +1,31 @@
 import React from 'react'
 import './register.css'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {FaArrowLeft} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { registerAsync } from '../../slices/userApiSlice'
 
 const Register = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    function handleRegister (e) {
+        e.preventDefault()
+
+        dispatch(registerAsync({name, email, password}))
+        navigate('/login')
+
+        setName('')
+        setEmail('')
+        setPassword('')
+    }
+
   return (
     <div className='registerContainer'>
         <div className='registerWrapper'>
@@ -11,12 +33,11 @@ const Register = () => {
                 <Link to='/' className='back'><FaArrowLeft /></Link>
                 <div className='registerContent'>
                     <h1>Sign Up</h1>
-                    <form>
-                        <input type='text' placeholder='Username' />
-                        <input type='phone' placeholder='Phone' />
-                        <input type='email' placeholder='Email'/>
-                        <input type='password' placeholder='Password' />
-                        <button type='submit' >Register</button>
+                    <form onSubmit={handleRegister}>
+                        <input type='text' onChange={(e) => setName(e.target.value)} placeholder='Username' />
+                        <input type='email' onChange={(e) => setEmail(e.target.value)} placeholder='Email'/>
+                        <input type='password' onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
+                        <button type='submit'>Register</button>
                     </form>
                     <p>You Already Have An Account ? You Can<Link to='/login'><span className='signIn'> Sign In</span></Link></p>
                 </div>

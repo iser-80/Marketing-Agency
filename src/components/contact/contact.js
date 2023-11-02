@@ -22,7 +22,7 @@ const Contact = () => {
                         </div>
                         <input className='fullInput' type='text' placeholder='Object'/>
                         <textarea className='fullInput' rows={5} placeholder='Message'></textarea>
-                        <button type='submit'>Submit <FaTelegramPlane/></button>
+                        <button className='contactBtn' type='submit'>Submit <FaTelegramPlane/></button>
                     </form>
                 </div>
                 <div className='contactInfos'>

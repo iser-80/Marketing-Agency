@@ -1,9 +1,20 @@
 import React from 'react'
 import './navbar.css'
-import { Link as ScrollLink } from 'react-scroll'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { Button, Link as ScrollLink } from 'react-scroll'
 import { Link as RouterLink } from 'react-router-dom'
+import { logout } from '../../slices/userAuth'
+import { logoutAsync } from '../../slices/userApiSlice'
 
 const Navbar = () => {
+    const {userInfo} = useSelector((state) => state.auth)
+    const dispatch = useDispatch()
+
+    function handleLogout () {
+        dispatch(logoutAsync())
+        dispatch(logout())
+    }
   return (
     <>
         <nav>
@@ -25,10 +36,18 @@ const Navbar = () => {
                         <ScrollLink to="contact" spy={true} smooth={true} duration={500} className='navLink' >Contact</ScrollLink>
                     </li>
                 </ul>
-                <div className='authContainer'>
-                    <RouterLink to='/login' className='loginBtn' >Login</RouterLink>
-                    <RouterLink to='/register' className='registerBtn' >Register</RouterLink>
-                </div>
+                
+                    {userInfo 
+                        ? 
+                        <div className='authContainer'>
+                            <Button onClick={handleLogout} className='loginBtn'>Logout</Button>
+                        </div>
+                        :
+                        <div className='authContainer'>
+                            <RouterLink to='/login' className='loginBtn' >Login</RouterLink>
+                            <RouterLink to='/register' className='registerBtn' >Register</RouterLink>
+                        </div>
+                    }
             </div>
         </nav>
     </>

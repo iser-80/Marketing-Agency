@@ -2,21 +2,21 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 export const loginAsync = createAsyncThunk('users/login', async (data) => {
-    const port = process.env.PORT
-    const response = await fetch(`http://localhost:8000/api/login`, {
+    const response = await fetch('http://localhost:8000/api/login', {
         method: 'POST',
         credentials: 'include', // Include cookies in the request
         body: JSON.stringify(data),
-        headers: {'Content-Type': 'application/json'},
-    })
+        headers: { 'Content-Type': 'application/json' },
+    });
+    const result = await response.json();
 
-    const result = await response.json()
-    return result
-})
+    return result;
+});
 
-export const logoutAsyn = createAsyncThunk('users/logout', async () => {
+
+export const logoutAsync = createAsyncThunk('users/logout', async () => {
     const port = process.env.PORT
-    const response = await fetch(`http://localhost:${port}/api/logout`, {
+    const response = await fetch(`http://localhost:8000/api/logout`, {
         method: 'POST',
         credentials: 'include',
     })
@@ -26,6 +26,18 @@ export const logoutAsyn = createAsyncThunk('users/logout', async () => {
 })
 
 // add the rest of calls register ...
+
+export const registerAsync = createAsyncThunk('users/register', async (data) => {
+    const response = await fetch('http://localhost:8000/api/register', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        credentials: 'include',
+        headers: {'Content-Type': 'application/json'},
+    })
+
+    const result = response.json()
+    return result
+})
 
 const userSlice = createSlice({
     name: 'userLogin',
@@ -40,13 +52,15 @@ const userSlice = createSlice({
                 state.user = action.payload
                 state.error = null
             })
-            .addCase(logoutAsyn.fulfilled, (state, action) => {
+            .addCase(logoutAsync.fulfilled, (state, action) => {
                 state.user = null
                 state.error = null
             })
-
-            // add other reducers register, update ..
-    }
+            .addCase(registerAsync.fulfilled, (state, action) => {
+                state.user = null
+                state.user = null
+            })
+        }
 })
 
 
