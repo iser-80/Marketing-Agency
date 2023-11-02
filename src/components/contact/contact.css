@@ -48,7 +48,12 @@
     align-items: center;
 }
 
+.contactForm {
+    color: #000;
+}
+
 input {
+    color: #000;
     padding: 10px 20px;
     font-size: 15px;
     outline: none;
@@ -170,9 +175,6 @@ button {
     background: white;
 }
 
-.contactBtn {
-    
-}
 
 @media screen and (max-width: 750px) {
 
